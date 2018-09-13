@@ -1,45 +1,36 @@
-//Window nós manipulamos toda a aplicação e janela
-window.addEventListener("focus", event => {
-    console.log("Foi focado");
-});
+//Declarar variável com LET faz com que ela possua escopo local de onde ela foi criada.
+let number = 15;
+ 
+for (let i = 1; i <= 10; i++) {
+    //Esta é uma nova forma de concatenar no javascript que por sinal é baita excelente 
+    console.log(` ${number} x ${i} = ${number * i} `);
+}
 
-//Document nós mexemos em toda estrutura HTML
-document.addEventListener("click", event =>{
-    console.log("Click!");
-});
-
-//Timestamp é a quantidade de segundos desde 1970
-let agora = new Date();
-
-//Mostrando a data local brasileira
-console.log(agora.toLocaleDateString("pt-br"));
-
-//Foreach no Javascript
-let carros = ["palio 98", "fiat", "uno", "chevrolet", "corsa"];
-carros.forEach(function(elemento, indice){
-    console.log(indice, elemento);
-});
-
-//Usando Arrows functions no forEach
-let arrowFunction;
-carros.forEach(arrowFunction = (indice, elemento) => {
-    console.log(elemento, indice);
-});
-
-//Orientação a objetos no Ecmascript
-let celular = () =>
+//Função anonima
+let result = function(n1, n2, operator)
 {
-    this.cor = "prata";
-    this.altura = 40;
+    //A função Eval do JS interpreta as operações em Strings passadas para ele
+    return eval(`${n1} ${operator} ${n2}`);
 
-    this.ligar = function()
+}(3,2, "*");
+
+//Arrow function
+let sum = (x, y) =>
+{
+    return x + y;
+}
+
+//Exemplo prático de Arrow function
+let tabuada = (number) => 
+{
+    for (let i = 1; i <= number; i++) 
     {
-        console.log('Ligação feita');
-        return 0;
+        for (let j = 0; j <= 10; j++) 
+        {
+           console.log(`${i} x ${j} = ${i * j}`);
+        }
     }
 }
 
-let objeto = new celular();
-console.log(objeto.ligar());
-
+tabuada(50);
 
