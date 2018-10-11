@@ -1,0 +1,20 @@
+//==================Iteradores e iteráveis==================
+
+//Example 1
+let chapeuSeletor  = (bruxo) => 
+{
+    let casas = ['Grifinória', 'Lufa-lufa', 'Sonserina', 'Convirnal'];
+    let casa = casas[Math.floor(Math.random() * casas.length)];
+    console.log(`Bruxo: ${bruxo} | Casa: ${casa} `);
+}
+
+let bruxos = ['Matheus Rodrigues', 'Kimberly', 'Thomas', 'Luna'];
+let iterador = bruxos[Symbol.iterator]();
+let theNext = iterador.next();
+
+do {
+    let bruxos = theNext.value;
+    chapeuSeletor(bruxos);
+    theNext = iterador.next();
+} while(!theNext.done)
+
