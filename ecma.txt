@@ -18,3 +18,28 @@ do {
     theNext = iterador.next();
 } while(!theNext.done)
 
+
+//==================For of e For in==================
+let carros = {
+    modelo: 'fiat',
+    ano: 1995
+}
+
+let carrosArray = ['fiat', 'ano'];
+
+//For in pega o índice da variável, seja objeto ou array
+for(let index in carros){
+    element= carros[index];
+}
+
+//For of pega o conceito de Symnol.iterator então ele percorre itens iteráveis
+for(let carro of carrosArray)
+{
+    // console.log(carro);
+}
+
+for(let index in carrosArray)
+{
+    // console.log(`${index}:${carrosArray}`);
+    console.log(index);
+}
