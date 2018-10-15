@@ -92,5 +92,93 @@ for(entries of map.entries()){
 }
 
 //Example 2 
+//Array interável
+let livros = [
+    {titulo: 'O poder do hábito', autor: 'Charles Duhigg', local: 'A1'},
+    {titulo: 'Como fazer amigos e influenciar pessoas', autor: 'Dale Carnegie', local: 'D2'},
+    {titulo: 'Geração de Valor', autor: 'Flávio Augusto da Silva', local: 'L3'},
+    {titulo: 'Os segredos da mente milionária', autor: 'T. Harv Eker', local: '04'}
+]
+
+//Variável para mapear um objeto iterável
+let estantes = new Map();
+
+//Busca pelo título do livro
+for(livro of livros)
+{
+    estantes.set(livro.titulo, livro.local);
+}
+
+//Função para mapear e achar ou não o livro
+let bookLocation = (title) => 
+{
+    let estante = estantes.get(title);
+    if(estante === undefined)
+    {
+        return 'Livro não encontrado';
+    }
+
+    return estante
+}
+
+let l = bookLocation('Nothing');
+console.log(l);
+
+//Example 3
+/* Músicas disponíveis */
+let musica01 = {titulo: 'Musica 01', autor: 'Oracle'}
+let musica02 = {titulo: 'Musica 02', autor: 'Ecmascript'}
+let musica03 = {titulo: 'Musica 03', autor: 'Javascript'}
+let musica04 = {titulo: 'Musica 04', autor: 'SQL'}
+let musica05 = {titulo: 'Musica 05', autor: 'MySQL'}
+
+//Set ajuda para adicionarmos um novo item sem duplica-lo
+let playlist = new Set();
+
+//Adicionando uma música
+playlist.add(musica01);
+playlist.add(musica02);
+
+//Remover uma música
+playlist.delete(musica02);
+
+for(let musica of playlist)
+{
+    console.log(musica);
+}
+
+//==================Template strings==================
+//Example 1:
+const nome = 'Matheus Rodrigues da Silva';
+console.log(`Olá, ${nome}`);
+const n1 = 5;
+const n2 = 5;
+console.log(`O valor da soma entre ${n1} + ${n2} = ${n1+n2}`);
+
+console.log(`exibindo
+uma
+palavra
+por
+linha
+`)
+
+//Example 2:
+const nome = 'Matheus';
+const idade = 20;
+const endereco = 'Professor Amicis';
+
+const div = 
+`<div>
+    <p><b>Nome:</b> ${nome}</p>
+    <p><b>Nome:</b> ${idade}</p>
+    <p><b>Nome:</b> ${endereco}</p>
+</div>`;
+
+console.log(div);
+
+let parentDiv = document.createElement('div');
+let body = document.querySelector('body');
+parentDiv.innerHTML = div;
+body.appendChild(parentDiv);
 
 
