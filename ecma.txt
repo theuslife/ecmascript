@@ -1,22 +1,22 @@
 //==================Iteradores e iteráveis==================
 
 //Example 1
-let chapeuSeletor  = (bruxo) => 
-{
-    let casas = ['Grifinória', 'Lufa-lufa', 'Sonserina', 'Convirnal'];
-    let casa = casas[Math.floor(Math.random() * casas.length)];
-    console.log(`Bruxo: ${bruxo} | Casa: ${casa} `);
-}
+    let chapeuSeletor  = (bruxo) => 
+    {
+        let casas = ['Grifinória', 'Lufa-lufa', 'Sonserina', 'Convirnal'];
+        let casa = casas[Math.floor(Math.random() * casas.length)];
+        console.log(`Bruxo: ${bruxo} | Casa: ${casa} `);
+    }
 
-let bruxos = ['Matheus Rodrigues', 'Kimberly', 'Thomas', 'Luna'];
-let iterador = bruxos[Symbol.iterator]();
-let theNext = iterador.next();
+    let bruxos = ['Matheus Rodrigues', 'Kimberly', 'Thomas', 'Luna'];
+    let iterador = bruxos[Symbol.iterator]();
+    let theNext = iterador.next();
 
-do {
-    let bruxos = theNext.value;
-    chapeuSeletor(bruxos);
-    theNext = iterador.next();
-} while(!theNext.done)
+    do {
+        let bruxos = theNext.value;
+        chapeuSeletor(bruxos);
+        theNext = iterador.next();
+    } while(!theNext.done)
 
 
 //==================For of e For in==================
@@ -48,137 +48,182 @@ for(let index in carrosArray)
 //==================Novas estruturas de dados==================
 
 //Example 1 
-let map = new Map();
+    let map = new Map();
 
-let funcao = () => {};
-let object = {};
-let array = [];
+    let funcao = () => {};
+    let object = {};
+    let array = [];
 
-//Set
-map.set('string', 'Sou uma string');
-map.set(object, 'Sou um objeto');
-map.set(funcao, 'Sou uma função');
-map.set(array, 'Sou um array');
+    //Set
+    map.set('string', 'Sou uma string');
+    map.set(object, 'Sou um objeto');
+    map.set(funcao, 'Sou uma função');
+    map.set(array, 'Sou um array');
 
-//Get
-console.log(map.get('string'));
-console.log(map.get(array));
-console.log(map.get(object));
-console.log(map.get(funcao));
+    //Get
+    console.log(map.get('string'));
+    console.log(map.get(array));
+    console.log(map.get(object));
+    console.log(map.get(funcao));
 
-//Size
-console.log(`Tamanho do mapa: ${map.size}`);
+    //Size
+    console.log(`Tamanho do mapa: ${map.size}`);
 
-//Has
-console.log(map.has(array)) // True
-console.log(map.has(1)) // False
+    //Has
+    console.log(map.has(array)) // True
+    console.log(map.has(1)) // False
 
-//Delete
-map.delete('string');
-console.log(map.has('string')); // False
+    //Delete
+    map.delete('string');
+    console.log(map.has('string')); // False
 
-for(index of map.keys())
-{
-    console.log(index);
-}
-
-for(element of map.values())
-{
-    console.log(element);
-}
-
-for(entries of map.entries()){
-    console.log(entries);
-}
-
-//Example 2 
-//Array interável
-let livros = [
-    {titulo: 'O poder do hábito', autor: 'Charles Duhigg', local: 'A1'},
-    {titulo: 'Como fazer amigos e influenciar pessoas', autor: 'Dale Carnegie', local: 'D2'},
-    {titulo: 'Geração de Valor', autor: 'Flávio Augusto da Silva', local: 'L3'},
-    {titulo: 'Os segredos da mente milionária', autor: 'T. Harv Eker', local: '04'}
-]
-
-//Variável para mapear um objeto iterável
-let estantes = new Map();
-
-//Busca pelo título do livro
-for(livro of livros)
-{
-    estantes.set(livro.titulo, livro.local);
-}
-
-//Função para mapear e achar ou não o livro
-let bookLocation = (title) => 
-{
-    let estante = estantes.get(title);
-    if(estante === undefined)
+    for(index of map.keys())
     {
-        return 'Livro não encontrado';
+        console.log(index);
     }
 
-    return estante
-}
+    for(element of map.values())
+    {
+        console.log(element);
+    }
 
-let l = bookLocation('Nothing');
-console.log(l);
+    for(entries of map.entries()){
+        console.log(entries);
+    }
+
+//Example 2 
+    //Array interável
+    let livros = [
+        {titulo: 'O poder do hábito', autor: 'Charles Duhigg', local: 'A1'},
+        {titulo: 'Como fazer amigos e influenciar pessoas', autor: 'Dale Carnegie', local: 'D2'},
+        {titulo: 'Geração de Valor', autor: 'Flávio Augusto da Silva', local: 'L3'},
+        {titulo: 'Os segredos da mente milionária', autor: 'T. Harv Eker', local: '04'}
+    ]
+
+    //Variável para mapear um objeto iterável
+    let estantes = new Map();
+
+    //Busca pelo título do livro
+    for(livro of livros)
+    {
+        estantes.set(livro.titulo, livro.local);
+    }
+
+    //Função para mapear e achar ou não o livro
+    let bookLocation = (title) => 
+    {
+        let estante = estantes.get(title);
+        if(estante === undefined)
+        {
+            return 'Livro não encontrado';
+        }
+
+        return estante
+    }
+
+    let l = bookLocation('Nothing');
+    console.log(l);
 
 //Example 3
-/* Músicas disponíveis */
-let musica01 = {titulo: 'Musica 01', autor: 'Oracle'}
-let musica02 = {titulo: 'Musica 02', autor: 'Ecmascript'}
-let musica03 = {titulo: 'Musica 03', autor: 'Javascript'}
-let musica04 = {titulo: 'Musica 04', autor: 'SQL'}
-let musica05 = {titulo: 'Musica 05', autor: 'MySQL'}
+    /* Músicas disponíveis */
+    let musica01 = {titulo: 'Musica 01', autor: 'Oracle'}
+    let musica02 = {titulo: 'Musica 02', autor: 'Ecmascript'}
+    let musica03 = {titulo: 'Musica 03', autor: 'Javascript'}
+    let musica04 = {titulo: 'Musica 04', autor: 'SQL'}
+    let musica05 = {titulo: 'Musica 05', autor: 'MySQL'}
 
-//Set ajuda para adicionarmos um novo item sem duplica-lo
-let playlist = new Set();
+    //Set ajuda para adicionarmos um novo item sem duplica-lo
+    let playlist = new Set();
 
-//Adicionando uma música
-playlist.add(musica01);
-playlist.add(musica02);
+    //Adicionando uma música
+    playlist.add(musica01);
+    playlist.add(musica02);
 
-//Remover uma música
-playlist.delete(musica02);
+    //Remover uma música
+    playlist.delete(musica02);
 
-for(let musica of playlist)
-{
-    console.log(musica);
-}
+    for(let musica of playlist)
+    {
+        console.log(musica);
+    }
 
 //==================Template strings==================
-//Example 1:
-const nome = 'Matheus Rodrigues da Silva';
-console.log(`Olá, ${nome}`);
-const n1 = 5;
-const n2 = 5;
-console.log(`O valor da soma entre ${n1} + ${n2} = ${n1+n2}`);
 
-console.log(`exibindo
-uma
-palavra
-por
-linha
-`)
+//Example 1:
+    const nome = 'Matheus Rodrigues da Silva';
+    console.log(`Olá, ${nome}`);
+    const n1 = 5;
+    const n2 = 5;
+    console.log(`O valor da soma entre ${n1} + ${n2} = ${n1+n2}`);
+
+    console.log(`exibindo
+    uma
+    palavra
+    por
+    linha
+    `)
 
 //Example 2:
-const nome = 'Matheus';
-const idade = 20;
-const endereco = 'Professor Amicis';
+    const nome = 'Matheus';
+    const idade = 20;
+    const endereco = 'Professor Amicis';
 
-const div = 
-`<div>
-    <p><b>Nome:</b> ${nome}</p>
-    <p><b>Nome:</b> ${idade}</p>
-    <p><b>Nome:</b> ${endereco}</p>
-</div>`;
+    const div = 
+    `<div>
+        <p><b>Nome:</b> ${nome}</p>
+        <p><b>Nome:</b> ${idade}</p>
+        <p><b>Nome:</b> ${endereco}</p>
+    </div>`;
 
-console.log(div);
+    console.log(div);
 
-let parentDiv = document.createElement('div');
-let body = document.querySelector('body');
-parentDiv.innerHTML = div;
-body.appendChild(parentDiv);
+    let parentDiv = document.createElement('div');
+    let body = document.querySelector('body');
+    parentDiv.innerHTML = div;
+    body.appendChild(parentDiv);
+
+//==================Melhorias em objetos literais==================
+
+//Exemplo 1:
+    let livro = {
+        titulo: 'O mar de monstros'
+    }
+
+    livro.autor = "Jack Nolan";
+    livro.data = '10/12/2002';
+    livro.exibir = () => 
+    {
+        console.log(`${livro.titulo}, ${livro.autor}. Data de publicação: ${livro.data}`);
+    }
+
+    livro.exibir();
+
+//Exemplo 2:
+//Itens do objeto literal
+    const matheus = {nome: 'Matheus Rodrigues da Silva', idade: 20};
+    const valeria = {nome: 'Maria Valéria Rodrigues', idade: 37}
+    const lorivaldo = {nome: 'Lorivaldo Pires da Silva', idade: 46}
+    const thalia = {nome: 'Thalia Rodrigues Pires da Silva', idade: 7}
+
+    let exibirTodos = function(){
+        console.log(`${this.matheus.nome}, ${this.valeria.nome}, ${this.lorivaldo.nome}, ${this.thalia.nome}`);
+    }
+
+    //Objeto literal
+    let pessoas = 
+    {
+        matheus,
+        valeria,
+        lorivaldo,
+        thalia,
+        exibirTodos
+    }
+
+    pessoas.exibirTodos();
+    console.log(pessoas);
+
+
+
+
 
 
