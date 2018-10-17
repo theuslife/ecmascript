@@ -237,3 +237,67 @@ for(let index in carrosArray)
     //Spread
     let args = [1,2,3];
     console.log(...args);
+
+//Example 3
+    const listMother = ['leite', 'ovos', 'papel'];
+    const listGirlfriend = ['arroz', 'feijao', 'suco'];
+    const listOffice = ['papel a4', 'caneta', 'clipe de papel'];
+
+    //Usando spead para juntar arrays
+    let listCash = [...listMother, ...listGirlfriend, ...listOffice];
+    //Passando no console.log
+    console.log(listCash);
+
+//Exemple 4
+    let countVowels = (...words) =>
+    {
+        let qtdVowels = 0;
+        
+        for(let word of words)
+        {
+            //Minúsculo
+            let lowerCaseWords = word.toLowerCase();
+
+            //Irá simplesmente pegar letra por letra e jogar em um array
+            let letters = [...lowerCaseWords];
+
+            //Percorrendo as letras
+            for(let letter of letters)
+            {
+                if('aeiou'.indexOf(letter) !== -1)
+                {
+                    qtdVowels++;
+                }
+            }
+        }
+
+        console.log(qtdVowels);
+
+    }
+
+    countVowels('es6');
+    countVowels('java', 'javascript', 'delphi');
+    countVowels('NãO ConSideRa AcentUÁDOs');
+
+===================================Desestruturamento========================================
+//Example 1:
+    const User = {
+        nome: 'theus',
+        sobrenome: 'Rodrigues',
+        senha: '123',
+        email: 'matheus.alg10@gmail.com',
+        profissao: 'Engenheiro de Ciberseguranca',
+        github: 'https://github.com/ElliotAlderson'
+    }
+
+    //Pegando os atributos do objeto user de maneira simples. Podemos dar um apelido ao atributo que pegamos
+    const {nome:apelido, profissao:trabalho, github:rede} = User;
+    console.log(apelido);
+    console.log(trabalho);
+    console.log(rede);
+
+//Example 2:
+
+
+
+
