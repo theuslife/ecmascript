@@ -1,0 +1,11 @@
+Javascript/Ecmascript: Just finished all concept (Udemy and Rocketseat)
+
+Jquery: Conceitos iniciais e básicos (Youtube)
+
+Regex: Livro e curso de Regex (Youtube or Udemy)
+
+Flexbox: CSS responsivo
+
+React: Webpack and anothers
+
+API's: Criar, consumir and deploy

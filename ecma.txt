@@ -199,15 +199,11 @@ for(let index in carrosArray)
     livro.exibir();
 
 //Exemplo 2:
-//Itens do objeto literal
+    //Itens do objeto literal
     const matheus = {nome: 'Matheus Rodrigues da Silva', idade: 20};
     const valeria = {nome: 'Maria Valéria Rodrigues', idade: 37}
     const lorivaldo = {nome: 'Lorivaldo Pires da Silva', idade: 46}
     const thalia = {nome: 'Thalia Rodrigues Pires da Silva', idade: 7}
-
-    let exibirTodos = function(){
-        console.log(`${this.matheus.nome}, ${this.valeria.nome}, ${this.lorivaldo.nome}, ${this.thalia.nome}`);
-    }
 
     //Objeto literal
     let pessoas = 
@@ -216,14 +212,28 @@ for(let index in carrosArray)
         valeria,
         lorivaldo,
         thalia,
-        exibirTodos
+        exibirTodos()
+        {
+            console.log(`${this.matheus.nome}, ${this.valeria.nome}, ${this.lorivaldo.nome}, ${this.thalia.nome}`);
+        }
     }
 
     pessoas.exibirTodos();
     console.log(pessoas);
 
+===================================Rest e spread========================================
+//Example 1
+    //Três pontos significa que podemos passar X parâmetros a função
+    //Todos os argumentos vão para um array que neste caso é o array valores
+    let somar = (...valores) =>{
+        return valores.reduce((soma, valor) => {
+            return soma + valor;
+        }, 0)
+    }
 
+    console.log(somar(30,30,30,10));
 
-
-
-
+//Example 2
+    //Spread
+    let args = [1,2,3];
+    console.log(...args);
