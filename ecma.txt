@@ -439,10 +439,103 @@ for(let index in carrosArray)
             que damos o nome a ele a palavra 'as'. Neste caso o nome do nosso objeto é circuferencia, um objeto
             com acesso aos métodos e atributos/variáveis de nosso arquivo chamado 
         */
-        
+
         import * as circuferencia from './circunferencia';
         console.log(circuferencia.comprimento(2));
         console.log(circuferencia.PI);
 
+===================================Funções Geradoras========================================
+
+//Example 1:
+    //Funções geradoras são funções nas quais você executa ele até certo ponto e interrompe em algum processo,
+    //depois ao chama-la novamente a função retoma de onde parou na última execução
+    function* linha447()
+    {
+        console.log('Passei pela rua 1');
+        yield 'Parada 1';
+        console.log('Passei a rua 2');
+        yield 'Parada 2';
+        console.log('Passei a rua 3');
+        yield 'Parada 3';
+        console.log('Passei a rua 4');
+        yield 'Parada 4';
+    }
+
+    //Vá a próxima interação com next()
+    const linha = linha447();
+
+    //O laço de repetição for of consegue fazer a iteração com o Next() automaticamente
+    for(let parada of linha){
+        console.log(parada);
+    }
+
+//Example 2:
+    const equipe = {
+        quantidade: 3,
+        maturidade: 'alta',
+        senior: 'luis',
+        pleno: 'Márcia',
+        junior: 'Christian',
+        [Symbol.iterator]: function*() 
+        {
+            yield this.senior;
+            yield this.pleno;
+            yield this.junior;
+        }
+
+    }
+
+    //For of vai direto no Symbol.iterator e faz automaticamente o next()
+    for(let integrante of equipe)
+    {
+        console.log(integrante);
+    }
+
+//Example 3:
+    const equipeDesenvolvimento = {
+        quantidade: 3,
+        maturidade: 'alta',
+        senior: 'luis',
+        pleno: 'Márcia',
+        junior: 'Christian',
+        [Symbol.iterator]: function*() 
+        {
+            yield this.senior;
+            yield this.pleno;
+            yield this.junior;
+        }
+    }
+
+    const equipeNegocios = {
+        quantidade: 2,
+        diretor: 'Marcelo',
+        vice: 'Lorivaldo',
+        [Symbol.iterator]: function*() 
+        {
+            yield this.diretor;
+            yield this.vice;
+        }
+    }
+
+    const equipe = {
+        equipeDesenvolvimento,
+        equipeNegocios,
+        [Symbol.iterator]: function*()
+        {
+            //Asterístico na frente indica que iremos usar o iterator já feito do nosso objeto iterador
+            yield* equipeDesenvolvimento,
+            yield* equipeNegocios
+        }
+    }
+
+    //For of vai direto no Symbol.iterator e faz automaticamente o next()
+    for(let integrante of equipe)
+    {
+        console.log(integrante);
+    }
+
+===================================Promises========================================
+
+//Example 1:
 
 
