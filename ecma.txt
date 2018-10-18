@@ -401,8 +401,48 @@ for(let index in carrosArray)
     const xboxone = new VideoGame('xbox-one', '4', 'hdmi', 'blu-ray');
     console.log(xboxone.getPropriedades('nome'));
 
+===================================Módulos========================================
 
+//Modularizar significa dividir nosso código em partes e reaproveita-las. Utilizando somente o importante.
 
+//Example 1:
+    //Arquivo circuferencia.js: 
+        const PI = 3.14;
+        let comprimento = (raio) => 
+        {
+            return 2 * PI * raio;
+        }
+
+        let area = (raio) =>
+        {
+            return PI * (raio * raio);
+        }
+
+        export default comprimento; // Padrão
+        export {area, comprimento}; // Nomeada
+
+    //Arquivo main.js
+        //Modularizar significa dividir nosso código em partes e reaproveita-las
+
+        //Este ponto no ínicio significa que estamos buscando da raíz de nosso arquivo
+        //Esta chamada é do módulo padrão e geral
+        import comprimento from './circunferencia';
+        comprimento(2);
+
+        //Esta chamada estamos chamando o necessário para a aplicação
+        import {area, comprimento, PI} from './circunferencia';
+        console.log('Area: ', area(2));
+        console.log(PI);
+
+        /*
+            O '*' irá pegar tudo do arquivo importado mas jogará todas seus métodos e variáveis em um objeto 
+            que damos o nome a ele a palavra 'as'. Neste caso o nome do nosso objeto é circuferencia, um objeto
+            com acesso aos métodos e atributos/variáveis de nosso arquivo chamado 
+        */
+        
+        import * as circuferencia from './circunferencia';
+        console.log(circuferencia.comprimento(2));
+        console.log(circuferencia.PI);
 
 
 
