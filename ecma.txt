@@ -537,5 +537,49 @@ for(let index in carrosArray)
 ===================================Promises========================================
 
 //Example 1:
+    // Requisições assíncronas com promisses
+    let promise = new Promise((resolve, reject)=>{
+        let result = true;
+        let time = 2000; //Tempo de resposta do nossa API
+        setTimeout(()=>{
+            if(result){
+                resolve('Request ok')
+            }else 
+            {
+                reject('Request not ok');
+            }
+        }, time)
+    });
+
+    //Then take a resolve and catch take a resolve
+    promise
+    .then((data) => {
+        console.log(`Success: ${data}`);
+    })
+    .catch((data) => {
+        console.log(`Fail: ${data}`);
+    });
+
+    //Async works :)
+    console.log('Fui executado antes da promisse!');
+
+//Example 2:
+        let promise = new Promise((resolve, reject) => {
+            resolve('Request ok');
+            let result = true;
+            if(result){
+                resolve('Request 2 ok')
+            }
+        })
+
+        promise
+        .then((data) => {
+            console.log(`Success: ${data}`);
+            throw new Error('Request not ok!');
+        })
+        .catch((data) => {
+            console.log(`Fail: ${data}`);
+        })
+
 
 
