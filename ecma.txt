@@ -297,6 +297,111 @@ for(let index in carrosArray)
     console.log(rede);
 
 //Example 2:
+    const suco = {
+        sabor: 'uva',
+        quantidade: '500ml'
+    }
+
+    const doce = {
+        tipo: 'açucar'
+    }
+
+
+    let descreveSuco = ({sabor, quantidade}, {tipo}) => 
+    {
+        return `Este suco é de sabor ${sabor} e possui ${quantidade} adocicado com ${tipo}`;
+    }
+
+    console.log(descreveSuco(suco, doce));
+
+//Example 3
+
+===================================Classes========================================
+
+//Example 1 - Classe:
+    //Classe
+    class Carro {
+        constructor(modelo, chassi, qtdPortas){
+            this.modelo = modelo;
+            this.chassi = chassi;
+            this.qtdPortas = qtdPortas
+        }
+
+        andar(){
+            console.log('Vrum, o carro começa a andar');
+        }
+
+    }
+
+    //Utilizando seus métodos e atributos
+    const carroBasico = new Carro('Basico', '147555555584', 4);
+    console.log(carroBasico.modelo, carroBasico.chassi, carroBasico.qtdPortas);
+    carroBasico.andar();
+
+//Example 2 - Herança
+    class Carro 
+    {
+        constructor(modelo, chassi, qtdPortas)
+        {
+            this.modelo = modelo;
+            this.chassi = chassi;
+            this.qtdPortas = qtdPortas
+        }
+        andar()
+        {
+            console.log('Vrum, o carro começa a andar');
+        }
+
+    }
+
+    class Sonix extends Carro 
+    {
+        constructor(modelo, chassi, qtdPortas, roda){
+            //Pega os atributos da classe extendida
+            super(modelo, chassi, qtdPortas);
+            this.roda = roda;
+        }
+
+        abrirTetoSolar()
+        {
+            console.log('Abrindo teto solar...');
+        }
+    }
+
+    const sonix = new Sonix('Sonix', '623265815', 2, 'A4');
+    console.log(sonix.modelo, sonix.chassi, sonix.qtdPortas, sonix.roda);
+    sonix.andar();
+    sonix.abrirTetoSolar();
+
+//Example 3 - Método estático
+    class Carro 
+    {
+        static abrirPorta(){
+            console.log('Você abriu a porta do carro pelo método estático!')
+        }
+    }
+
+    Carro.abrirPorta();
+
+//Example 4 - Encapsulamento verdadeiro
+    const propriedades = new WeakMap();
+
+    class VideoGame{
+        constructor(nome, constroles, saida, midia){
+            propriedades.set(this, {nome, constroles, saida, midia});
+        }
+
+        getPropriedades(propriedade)
+        {
+            return propriedades.get(this)[propriedade];
+        }
+
+    }
+
+    const xboxone = new VideoGame('xbox-one', '4', 'hdmi', 'blu-ray');
+    console.log(xboxone.getPropriedades('nome'));
+
+
 
 
 
